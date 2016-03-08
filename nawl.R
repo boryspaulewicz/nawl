@@ -1,3 +1,5 @@
+## -*- coding: utf-8 -*-
+
 ## Procedura: każda osoba ma oceniać po n (np 30) przymiotników neg,
 ## neu i poz. Rodzaj skali (emocje, wyobrażalność, arousal) i zgodność
 ## końcówki z płcią własną to manipulacja między-osobowa. Brak limitu
@@ -104,7 +106,7 @@ trial.code = function(trial, word = 'test', samegender = 'same', scale = 'emotio
                 TXT$set.string(scales[[scale]][1])
                 center.win(TXT)$move(c(0, WINDOW$get.size()[2] * .1))
                 WINDOW$draw(TXT)
-                value = draw.scale(scales[[scale]][-1], position = .7)
+                value = draw.scale(scales[[scale]][-1], position = .7)[1]
             }else{
                 state = 'done'
             }
@@ -112,7 +114,7 @@ trial.code = function(trial, word = 'test', samegender = 'same', scale = 'emotio
         }, 'done' = {
             WINDOW$clear(c(0, 0, 0))
             WINDOW$display()
-            res = list(value = value)
+            res = list(rating = value)
             return(res)
         })
     }
