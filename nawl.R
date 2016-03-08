@@ -112,7 +112,7 @@ trial.code = function(trial, word = 'test', samegender = 'same', scale = 'emotio
         }, 'done' = {
             WINDOW$clear(c(0, 0, 0))
             WINDOW$display()
-            res = list(word = word, value = value)
+            res = list(value = value)
             return(res)
         })
     }
