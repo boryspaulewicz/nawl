@@ -19,9 +19,9 @@ PRESENTATION.TIME = 1000
 words = readRDS('nawl.rds')
 words = words[words$Gram == 3,]
 words$val = (words$val_M_all - mean(words$val_M_all)) / sd(words$val_M_all)
-neg = words$NAWL_word[words$val < -1.5][1:40]
-neu = words$NAWL_word[abs(words$val) < .1][1:40]
-pos = words$NAWL_word[abs(words$val) > 1.5][1:40]
+neg = words$NAWL_word[words$val < -1.5][1:NOF.ITEMS]
+neu = words$NAWL_word[abs(words$val) < .1][1:NOF.ITEMS]
+pos = words$NAWL_word[words$val > 1.5][1:NOF.ITEMS]
 rm(words)
 
 WINDOW$set.visible(T)
@@ -142,7 +142,7 @@ Aby ocenić słowo należy wskazać odpowiednie miejsce na skali i wcisnąć lew
 
 run.trials(trial.code, expand.grid(scale = scale,
                                    samegender = str_split(cnd, '-')[[1]][1],
-                                   word = c(sample(neg)[1:NOF.ITEMS], sample(neu)[1:NOF.ITEMS], sample(pos)[1:NOF.ITEMS])),
-          record.session = T,
-          condition = cnd)
+                                   word = c(sample(neg), sample(neu), sample(pos))),
+           record.session = T,
+           condition = cnd)
 if(!interactive())quit("no")
