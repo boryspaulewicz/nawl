@@ -142,7 +142,7 @@ Aby ocenić słowo należy wskazać odpowiednie miejsce na skali i wcisnąć lew
 
 run.trials(trial.code, expand.grid(scale = scale,
                                    samegender = str_split(cnd, '-')[[1]][1],
-                                   word = c(sample(neg, NOF.ITEMS), sample(neu, NOF.ITEMS), sample(pos, NOF.ITEMS))),
+                                   word = c(sample(neg)[1:NOF.ITEMS], sample(neu)[1:NOF.ITEMS], sample(pos)[1:NOF.ITEMS])),
           record.session = T,
           condition = cnd)
 if(!interactive())quit("no")
