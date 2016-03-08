@@ -16,7 +16,7 @@ PRESENTATION.TIME = 1000
 ## Wczytujemy słowa z bazy i przygotowujemy zestaw bodźców
 words = readRDS('nawl.rds')
 words = words[words$Gram == 3,]
-words$val = st(words$val_M_all)
+words$val = (words$val_M_all - mean(words$val_M_all)) / sd(words$val_M_all)
 neg = words$NAWL_word[words$val < -1.5][1:40]
 neu = words$NAWL_word[abs(words$val) < .1][1:40]
 pos = words$NAWL_word[abs(words$val) > 1.5][1:40]
