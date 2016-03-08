@@ -38,7 +38,6 @@ trial.code = function(trial, word = 'test', samegender = 'same', scale = 'emotio
     if(trial == 1){
         state = 'press-space'
     }else{ state = 'show-fixation' }
-    if(WINDOW$is.open())process.inputs()
     ## Ewentualna zmiana genderu słowa
     if(((samegender == 'same') && (USER.DATA$gender == 'K')) ||
        ((samegender != 'same') && (USER.DATA$gender == 'M'))){
@@ -49,6 +48,7 @@ trial.code = function(trial, word = 'test', samegender = 'same', scale = 'emotio
     start = CLOCK$time
     while(WINDOW$is.open()){
         process.inputs()
+        if(KEY.PRESSED[Key.Escape + 1] > start)return(NULL)
         ## Kod specyficzny dla zadania
         switch(state, 'press-space' = {
             TXT$set.string("Proszę nacisnąć spację aby rozpocząć")
