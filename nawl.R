@@ -19,9 +19,9 @@ PRESENTATION.TIME = 1000
 words = readRDS('nawl.rds')
 words = words[words$Gram == 3,]
 words$val = (words$val_M_all - mean(words$val_M_all)) / sd(words$val_M_all)
-neg = words$NAWL_word[words$val < -1.5][1:NOF.ITEMS]
+neg = words$NAWL_word[words$val < -1.4][1:NOF.ITEMS]
 neu = words$NAWL_word[abs(words$val) < .1][1:NOF.ITEMS]
-pos = words$NAWL_word[words$val > 1.5][1:NOF.ITEMS]
+pos = words$NAWL_word[words$val > 1.4][1:NOF.ITEMS]
 rm(words)
 
 WINDOW$set.visible(T)
