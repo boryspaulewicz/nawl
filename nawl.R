@@ -103,10 +103,10 @@ trial.code = function(trial, word = 'test', samegender = 'same', scale = 'emotio
             ## Pokazujemy skalę tylko dopóki nie zaznaczy odpowiedzi
             if(BUTTON.PRESSED[1] <= scale.onset){
                 ## Pytanie dla skali (np. jak łatwo jest sobie wyobrazić...)
-                TXT$set.string(scales[[scale]][1])
+                TXT$set.string(scales[[as.character(scale)]][1])
                 center.win(TXT)$move(c(0, WINDOW$get.size()[2] * .1))
                 WINDOW$draw(TXT)
-                value = draw.scale(scales[[scale]][-1], position = .7)[1]
+                value = draw.scale(scales[[as.character(scale)]][-1], position = .7)[1]
             }else{
                 state = 'done'
             }
@@ -127,7 +127,7 @@ i miesiąca urodzenia (np.  ms0706).
 gui.user.data()
 
 cnd = db.random.condition(c('same-emotion', 'diff-emotion', 'same-imagine', 'diff-imagine'))
-scale = str_split(cnd, '-')[[1]][2]
+scale = 'imagine' ## str_split(cnd, '-')[[1]][2]
 
 gui.show.instruction(sprintf("
 Badanie dotyczy reakcji na czytane słowa. Przez kilka minut na ekranie komputera będą prezentowane różne słowa.
