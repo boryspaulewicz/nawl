@@ -127,7 +127,7 @@ i miesiąca urodzenia (np.  ms0706).
 gui.user.data()
 
 cnd = db.random.condition(c('same-emotion', 'diff-emotion', 'same-imagine', 'diff-imagine'))
-scale = 'imagine' ## str_split(cnd, '-')[[1]][2]
+scale = str_split(cnd, '-')[[1]][2]
 
 gui.show.instruction(sprintf("
 Badanie dotyczy reakcji na czytane słowa. Przez kilka minut na ekranie komputera będą prezentowane różne słowa.
