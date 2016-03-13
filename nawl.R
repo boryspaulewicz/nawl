@@ -145,4 +145,9 @@ run.trials(trial.code, expand.grid(scale = scale,
                                    word = c(sample(neg), sample(neu), sample(pos))),
            record.session = T,
            condition = cnd)
+
+gui.show.instruction("To koniec procedury. O dalszym postępowaniu poinformuje osoba prowadząca badanie.
+
+Dziękujemy za udział.")
+
 if(!interactive())quit("no")
