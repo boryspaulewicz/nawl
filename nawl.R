@@ -126,7 +126,8 @@ i miesiąca urodzenia (np.  ms0706).
 ")
 gui.user.data()
 
-cnd = db.random.condition(c('same-emotion', 'diff-emotion', 'same-imagine', 'diff-imagine'))
+## cnd = db.random.condition(c('same-emotion', 'diff-emotion', 'same-imagine', 'diff-imagine'))
+cnd = gui.choose.item(c('same-emotion', 'diff-emotion', 'same-imagine', 'diff-imagine'))
 scale = str_split(cnd, '-')[[1]][2]
 
 gui.show.instruction(sprintf("
